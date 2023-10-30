@@ -1,3 +1,11 @@
+:root {
+  --dark: #333;
+  --light: #fff;
+
+  color-scheme: light dark;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +19,13 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Mono', monospace;
   height: 100%;
   font-size: 1.6rem;
   font-weight: 500;
-  overflow-x: hidden;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 h1 {
@@ -45,6 +50,9 @@ h3 {
   line-height: 3.2rem;
   letter-spacing: -0.32px;
 }
+p {
+  line-height: 1.5;
+}
 
 .layout {
   max-width: 120rem;
@@ -60,13 +68,18 @@ h3 {
   font-size: 2rem;
 }
 
+.nav a {
+  text-decoration: none;
+}
+
 .homeBtn {
   box-sizing: border-box;
   width: 5.6rem;
   height: 5.6rem;
-  box-shadow: 0.6rem 0.6rem black;
-  background: #ffffff;
-  border: 3px solid #333333;
+  color: inherit;
+  background-color: inherit;
+  box-shadow: 0.6rem 0.6rem var(--dark);
+  border: 3px solid var(--dark);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -74,8 +87,8 @@ h3 {
 
 .homeBtn:hover,
 .backToHome a:hover {
-  background-color: #333333;
-  color: #ffffff;
+  background-color: var(--dark);
+  color: var(--light);
 }
 
 .backToHome {
@@ -86,6 +99,13 @@ h3 {
   display: flex;
   align-items: center;
   margin-bottom: 20rem;
+}
+
+.welcome p {
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  letter-spacing: -0.32px;
 }
 
 .welcome h2 {
@@ -118,7 +138,7 @@ h3 {
 
 .techItems {
   /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   margin-top: 1rem;
   margin-bottom: 6rem;
 }
@@ -126,8 +146,8 @@ h3 {
 .techItems li {
   display: inline-block;
   font-size: 16px;
-  color: #ffffff;
-  background: #333333;
+  color: var(--light);
+  background: var(--dark);
   border-radius: 10rem;
   margin-top: 12px;
   margin-right: 12px;
@@ -151,6 +171,10 @@ h3 {
 
 .projectInfo span {
   font-size: 1.6rem;
+}
+
+.projectInfo p > a {
+  text-decoration-thickness: 2px;
 }
 
 .projectLinks {
@@ -199,9 +223,6 @@ h3 {
 .contactMe p {
   margin-bottom: 2.6rem;
 }
-.contactMe a:link {
-  padding-right: 12px;
-}
 
 .container {
   max-width: 120rem;
@@ -221,10 +242,6 @@ h3 {
   font-weight: 400;
 }
 
-.content a {
-  text-decoration: underline;
-}
-
 .heading {
   margin-bottom: 4rem;
 }
@@ -236,16 +253,16 @@ h3 {
 
 .btnSmall:hover,
 .link:hover {
-  background-color: #333333;
-  color: #ffffff;
+  background-color: var(--dark);
+  color: var(--light);
 }
 
 .buttonLarge {
   width: 260px;
   height: 55px;
-  background: #ffffff;
-  border: 3px solid #333333;
-  box-shadow: 6px 6px black;
+  background: var(--light);
+  border: 3px solid var(--dark);
+  box-shadow: 6px 6px var(--dark);
 
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
@@ -254,13 +271,13 @@ h3 {
   text-align: center;
   letter-spacing: -0.32px;
 
-  color: #333333;
+  color: var(--dark);
 
   cursor: pointer;
 }
 
 .buttonLarge:hover {
-  background: #333333;
+  background-color: var(--dark);
   color: #fff;
 }
 
@@ -271,12 +288,8 @@ h3 {
   gap: 2rem;
 }
 
-.link {
-  text-decoration: underline;
-}
-
 #contact a {
-  padding-inline-end: 3rem;
+  margin-inline-end: 3rem;
 }
 
 .borderRadius {
@@ -434,5 +447,32 @@ h3 {
 
   .contactMe {
     text-align: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: var(--dark);
+    color: var(--light);
+  }
+  .homeBtn {
+    box-shadow: 0.6rem 0.6rem var(--light);
+    border-color: var(--light);
+  }
+  .buttonLarge {
+    color: var(--light);
+    background: var(--dark);
+    border-color: var(--light);
+    box-shadow: 6px 6px var(--light);
+  }
+
+  .homeBtn:hover,
+  .backToHome a:hover,
+  .buttonLarge:hover,
+  .btnSmall:hover,
+  .link:hover,
+  .techItems li {
+    background-color: var(--light);
+    color: var(--dark);
   }
 }
